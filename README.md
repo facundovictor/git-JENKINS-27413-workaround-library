@@ -1,3 +1,5 @@
+Original mercurial repo: https://bitbucket.org/janvrany/jenkins-27413-workaround-library
+
 # JENKINS-27413 workaround library
 
 This [pipeline library][2] contains a workaround for Jenkins issue [ JENKINS-27413][1]. It provides a new step `unstashParam` that saves file parameter to a workspace.
@@ -12,11 +14,12 @@ In a pipeline script:
 
 library "JENKINS-27413-workaround-library"
 
-```
+```groovy
 node{
     def file_in_workspace=unstashParam "file"
     sh "cat ${file_in_workspace}"
 }
+```
 
 The above assumes the Jenkins job has a file build parameter named `file`.
 
